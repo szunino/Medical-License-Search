@@ -1,0 +1,272 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design token variables (exact match to reference) ──────────────────── */
+:root {
+  --body-font-one:    Inter, sans-serif;
+  --gray-color:       grey;
+  --heading-font:     "Instrument Sans", sans-serif;
+  --dark-color:       #1a1a1a;
+  --primary-color:    #ff5700;
+  --body-font-two:    "Inter Tight", sans-serif;
+  --bg-color:         whitesmoke;
+  --strock-color:     #e4e4e4;
+  --white-color:      white;
+  --title-gray-color: #d1d1d1;
+  --radius:           1px;
+}
+
+/* ─── Base styles ─────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    box-sizing: border-box;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply antialiased;
+    font-family: var(--body-font-one);
+    color: var(--gray-color);
+    letter-spacing: -0.4px;
+    font-size: 20px;
+    line-height: 1.24;
+    margin: 0;
+    min-height: 100%;
+    background-color: var(--bg-color);
+  }
+
+  h1 {
+    font-family: var(--heading-font);
+    color: var(--dark-color);
+    text-align: center;
+    letter-spacing: -4px;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: .95;
+  }
+
+  h2 {
+    font-family: var(--heading-font);
+    color: var(--dark-color);
+    letter-spacing: -4px;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: .95;
+  }
+
+  h3 {
+    font-family: var(--heading-font);
+    color: var(--dark-color);
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  /* Improve focus visibility for keyboard navigation */
+  :focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+}
+
+/* ─── Responsive typography ───────────────────────────────────────────────── */
+@media screen and (min-width: 1280px) {
+  h1, h2 { font-size: 76px; }
+}
+@media screen and (min-width: 1440px) {
+  h1, h2 { font-size: 96px; letter-spacing: -5.8px; }
+}
+@media screen and (max-width: 767px) {
+  h1, h2 { font-size: 44px; letter-spacing: -2.5px; }
+}
+@media screen and (max-width: 479px) {
+  h1, h2 { font-size: 40px; }
+}
+
+/* ─── Layout containers ───────────────────────────────────────────────────── */
+.container-default {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 1280px) {
+  .container-default { max-width: 1200px; }
+}
+@media screen and (min-width: 1440px) {
+  .container-default { max-width: 1390px; }
+}
+@media screen and (max-width: 991px) {
+  .container-default { max-width: 728px; }
+}
+@media screen and (max-width: 767px) {
+  .container-default { max-width: none; }
+}
+
+/* ─── Section spacing ─────────────────────────────────────────────────────── */
+.section-gap {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+.hero-section-gap {
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+@media screen and (max-width: 991px) {
+  .section-gap { padding-top: 80px; padding-bottom: 80px; }
+  .hero-section-gap { padding-top: 80px; }
+}
+@media screen and (max-width: 767px) {
+  .section-gap { padding-top: 60px; padding-bottom: 60px; }
+  .hero-section-gap { padding-top: 60px; padding-bottom: 60px; }
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────────────────── */
+.primary-button {
+  color: var(--white-color);
+  background-color: #343434;
+  border-radius: 100px;
+  padding: 14px 24px;
+  font-family: var(--heading-font);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s;
+}
+.primary-button:hover {
+  background-color: var(--primary-color);
+}
+
+.hero-button {
+  border-radius: 150px;
+  transition: transform 0.4s;
+  display: inline-flex;
+  overflow: hidden;
+}
+.hero-button:hover {
+  transform: scale(0.95);
+}
+
+/* ─── Nav ─────────────────────────────────────────────────────────────────── */
+.nav-link {
+  color: var(--gray-color);
+  letter-spacing: -0.7px;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.4s;
+}
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+/* ─── FAQ items ───────────────────────────────────────────────────────────── */
+.faq-single-item {
+  border: 1px solid var(--strock-color);
+  background-color: var(--white-color);
+  border-radius: 16px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* ─── Subtitle block ──────────────────────────────────────────────────────── */
+.subtitle-dot {
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}
+.subtitle-text {
+  font-family: var(--body-font-two);
+  color: var(--dark-color);
+  text-align: center;
+  letter-spacing: -0.7px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+/* ─── Utility classes ─────────────────────────────────────────────────────── */
+@layer utilities {
+  .container-narrow {
+    @apply max-w-3xl mx-auto px-4 sm:px-6;
+  }
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50
+           focus:bg-white focus:px-4 focus:py-2 focus:shadow-lg;
+    color: var(--primary-color);
+  }
+}
+
+/* ─── Ad slot sizing helpers ─────────────────────────────────────────────── */
+.ad-slot {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.ad-slot--right-rail {
+  @apply hidden lg:flex lg:flex-col;
+}
+
+/* ─── Prose / content blocks ─────────────────────────────────────────────── */
+.prose-content h2 {
+  font-family: var(--heading-font);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--dark-color);
+}
+.prose-content h3 {
+  font-family: var(--heading-font);
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+}
+.prose-content p {
+  color: grey;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.prose-content ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  color: grey;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.prose-content a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+.prose-content a:hover {
+  text-decoration: none;
+}
