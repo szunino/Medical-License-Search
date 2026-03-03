@@ -77,6 +77,7 @@ export function TermsModal() {
             <h2
               id="terms-modal-title"
               className="text-lg font-bold text-gray-900"
+              style={{ letterSpacing: "-0.3px" }}
             >
               Terms of Use &amp; Disclaimer
             </h2>
